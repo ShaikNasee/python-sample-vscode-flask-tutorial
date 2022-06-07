@@ -1,5 +1,5 @@
 pipeline{
-    agent{ label 'python_build' }
+    agent{label 'python_build'}
     stages{
         stage( 'source code from git' ){
             steps{
