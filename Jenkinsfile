@@ -1,9 +1,10 @@
 pipeline{
     agent{ label 'python_build' }
     stages{
-        stage( 'get the code from git repo' ){
+        stage( 'source code from git' ){
             steps{
-                'git branch :'master' url: https://github.com/ShaikNasee/python-sample-vscode-flask-tutorial.git'
+                git url: 'https://github.com/ShaikNasee/python-sample-vscode-flask-tutorial.git'
+                    branch: 'master'
             }
         }
         stage('build'){
