@@ -1,11 +1,10 @@
 pipeline{
-    agent{ label 'build_pipeline' }
+    agent{ label 'python_build' }
     triggers{ cron '0 * * * *'}
     stages{
         stage( 'checkout' ){
             steps{
-                git url: 'https://github.com/ashishdevops123/python.git',
-                    branch: 'master'
+                git branch: 'master' url: 'https://github.com/ShaikNasee/python-sample-vscode-flask-tutorial.git'
             }
         }
         stage('build'){
@@ -17,7 +16,7 @@ pipeline{
             steps{
                 sh ' pip install pytest pytest-azurepipelines '
                 sh ' pip install pytest-cov '
-                sh ' /home/jenkins/.local/bin/pytest --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-report=xml'
+                sh ' /home/python/.local/bin/pytest --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-report=xml'
             }
         }
         stage( 'publish'){
