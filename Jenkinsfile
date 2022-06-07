@@ -1,10 +1,9 @@
 pipeline{
     agent{ label 'python_build' }
-    triggers{ cron '0 * * * *'}
     stages{
-        stage( 'checkout' ){
+        stage( 'get the code from git repo' ){
             steps{
-                git branch: 'master' url: 'https://github.com/ShaikNasee/python-sample-vscode-flask-tutorial.git'
+                git branch :'master' url: 'https://github.com/ShaikNasee/python-sample-vscode-flask-tutorial.git'
             }
         }
         stage('build'){
