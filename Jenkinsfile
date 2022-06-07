@@ -15,7 +15,7 @@ pipeline{
             steps{
                 sh ' pip install pytest pytest-azurepipelines '
                 sh ' pip install pytest-cov '
-                sh ' /home/python/.local/bin/pytest --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-report=xml'
+                sh 'pytest --doctest-modules --junitxml=junit/test-results.xml --cov=. --cov-report=xml'
             }
         }
         stage( 'publish'){
