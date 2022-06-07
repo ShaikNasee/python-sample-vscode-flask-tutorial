@@ -3,8 +3,7 @@ pipeline{
     stages{
         stage( 'source code from git' ){
             steps{
-                git url: 'https://github.com/ShaikNasee/python-sample-vscode-flask-tutorial.git'
-                    branch: 'master'
+              git branch: 'master' url: 'https://github.com/ShaikNasee/python-sample-vscode-flask-tutorial.git'
             }
         }
         stage('build'){
